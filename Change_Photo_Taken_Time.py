@@ -6,7 +6,7 @@ def absoluteFilePaths(directory):
 	for dirpath,_,filenames in os.walk(directory):
 		for f in filenames:
 			fullPath = os.path.abspath(os.path.join(dirpath, f))
-			if re.match(r"^IMG-\d\d\d\d\d\d\d\d-WA\d\d\d\d.*", f):
+			if re.match(r"^IMG-\d\d\d\d\d\d\d\d-WA\d\d\d\d.*", f) and not re.match(r"^IMG-\d\d\d\d\d\d\d\d-WA\d\d\d\d-ANIMATION.gif", f):
 				print(f+" Matched")
 				match = re.search("^IMG-(\d\d\d\d)(\d\d)(\d\d)-WA\d\d\d\d.*", f)
 				year = match.group(1)
