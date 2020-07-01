@@ -21,4 +21,4 @@ def absoluteFilePaths(directory):
 				print("############################")
 
 
-absoluteFilePaths("C:\\Users\\cicil\Downloads\\Downloads\\")
+absoluteFilePaths("__DIRECTORY_WITH_PHOTOS__")
