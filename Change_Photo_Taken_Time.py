@@ -15,7 +15,7 @@ def absoluteFilePaths(directory):
 				exif_dict = piexif.load(fullPath)
 				exif_dict['Exif'][36867] = year+':'+month+':'+day+' 00:00:00'
 				exif_dict['Exif'][36868] = year+':'+month+':'+day+' 00:00:00'
-				exif_dict['0th'][306] = '2015:07:08 12:10:10'
+				exif_dict['0th'][306] = year+':'+month+':'+day+' 00:00:00'
 				exif_bytes = piexif.dump(exif_dict)
 				piexif.insert(exif_bytes, fullPath)
 				print("############################")
