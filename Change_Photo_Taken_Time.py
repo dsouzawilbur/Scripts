@@ -13,9 +13,12 @@ def absoluteFilePaths(directory):
 				month= match.group(2)
 				day = match.group(3)
 				exif_dict = piexif.load(fullPath)
-				exif_dict['Exif'][36867] = year+':'+month+':'+day+' 04:00:00'
-				exif_dict['Exif'][36868] = year+':'+month+':'+day+' 04:00:00'
-				exif_dict['0th'][306] = year+':'+month+':'+day+' 04:00:00'
+				#Update DateTimeOriginal
+				exif_dict['Exif'][piexif.ExifIFD.DateTimeOriginal] = datetime(int(year), int(month), int(day), 4, 0, 0).strftime("%Y:%m:%d %H:%M:%S")
+				#Update DateTimeDigitized				
+				exif_dict['Exif'][piexif.ExifIFD.DateTimeDigitized] = datetime(int(year), int(month), int(day), 4, 0, 0).strftime("%Y:%m:%d %H:%M:%S")
+				#Update DateTime
+				exif_dict['0th'][piexif.ImageIFD.DateTime] = datetime(int(year), int(month), int(day), 4, 0, 0).strftime("%Y:%m:%d %H:%M:%S")
 				exif_bytes = piexif.dump(exif_dict)
 				piexif.insert(exif_bytes, fullPath)
 				print("############################")
