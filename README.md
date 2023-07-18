@@ -11,3 +11,7 @@ The Timestamp is hardcoded to 04:00 (GMT +00:00) to allow the photos to be added
 
 
 This script was specificatlly done to fix an issue i was facing where whatsapp images uploaded to google photos would get shown current date when the photo was uploaded
+
+
+# parse_any_json.py
+Simple python script to parse json files or json input
